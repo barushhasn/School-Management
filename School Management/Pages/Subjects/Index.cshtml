@@ -1,0 +1,32 @@
+﻿@page
+@model School_Management.Pages.Subjects.IndexModel
+@{
+}
+
+<br />
+<h2>List of Subjects</h2>
+<a class="btn btn-primary btn-sm" href="/Subjects/Create">New Subject</a>
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Lesson</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.subjectInfos)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Lessons</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" href="/Subjects/Edit?id=@item.Id">Edit</a>
+                    <a class="btn btn-danger btn-sm" href="/Subjects/Delete?id=@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

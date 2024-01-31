@@ -1,0 +1,37 @@
+﻿@page
+@model School_Management.Pages.Teachers.IndexModel
+@{
+}
+
+<br />
+<h2>List of Teachers</h2>
+<a class="btn btn-primary btn-sm" href="/Teachers/Create">New Teacher</a>
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>SubjectId</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.teacherInfos)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.FirstName</td>
+                <td>@item.LastName</td>
+                <td>@item.Address</td>
+                <td>@item.Phone</td>
+                <td>@item.SubjectId</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" href="/Teachers/Edit?id=@item.Id">Edit</a>
+                    <a class="btn btn-danger btn-sm" href="/Teachers/Delete?id=@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
